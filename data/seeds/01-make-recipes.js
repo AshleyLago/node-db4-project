@@ -49,7 +49,7 @@ const step_ingredients = [
     {step_id: 5, ingredient_id: 4, quantity: 3},
     {step_id: 6, ingredient_id: 1, quantity: 8},
     {step_id: 7, ingredient_id: 5, quantity: 3},
-    {step_id: 8, ingredient_id: 6, quantity: 1},
+    {step_id: 8, ingredient_id: 6, quantity: 0.75},
     {step_id: 9, ingredient_id: 7, quantity: 2},
     {step_id: 10, ingredient_id: 8, quantity: 4},
 
