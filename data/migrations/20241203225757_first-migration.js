@@ -10,8 +10,6 @@ exports.up = async function(knex) {
         })
         .createTable('steps', tbl => {
             tbl.increments('step_id')
-            tbl.integer('step_number').notNullable()
-            tbl.string('step_instructions', 256).notNullable()
             tbl.integer('recipe_id')
                 .unsigned()
                 .notNullable()
@@ -19,14 +17,16 @@ exports.up = async function(knex) {
                 .inTable('recipes')
                 .onDelete('RESTRICT')
                 .onUpdate('RESTRICT')
+            tbl.integer('step_number').notNullable()
+            tbl.string('step_instructions', 256).notNullable()
         })
         .createTable('ingredients', tbl => {
             tbl.increments('ingredient_id')
             tbl.string('ingredient_name', 128).unique().notNullable()
+            tbl.string('ingredient_unit', 64)
         })
         .createTable('step_ingredients', tbl => {
             tbl.increments('step_ingredient_id')
-            tbl.float('quantity').notNullable()
             tbl.integer('step_id')
                 .unsigned()
                 .notNullable()
@@ -41,6 +41,7 @@ exports.up = async function(knex) {
                 .inTable('ingredients')
                 .onDelete('RESTRICT')
                 .onUpdate('RESTRICT')
+            tbl.float('quantity').notNullable()
         })
 };
 
